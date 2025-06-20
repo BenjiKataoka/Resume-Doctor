@@ -5,7 +5,6 @@ Resume Doctor is an AI-powered resume review web application. Upload your resume
 ## Features
 - Drag-and-drop PDF upload
 - AI-generated feedback (score, strengths, suggestions, constructive criticism)
-- Modern, dark-themed, responsive UI
 - Seamless transitions and typewriter effect for feedback
 
 ## Tech Stack
