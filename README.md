@@ -53,6 +53,3 @@ Resume Doctor is an AI-powered resume review web application. Upload your resume
 - Do not commit `.venv/`, `node_modules/`, or `kataoka.pdf` (see `.gitignore`).
 - For development, use your own OpenAI API key.
 
----
-
-Made with ❤️ by Resume Doctor
