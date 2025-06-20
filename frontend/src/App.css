@@ -1,0 +1,189 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(135deg, #181c24 0%, #232946 100%);
+  color: #f3f3f3;
+  min-height: 100vh;
+  transition: background 0.6s cubic-bezier(.4,0,.2,1);
+}
+
+.App.dark-theme {
+  background: none;
+  color: #f3f3f3;
+  min-height: 100vh;
+}
+
+.App-header {
+  background: transparent;
+  padding: 48px 0 24px 0;
+  color: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.animated-title {
+  font-size: 2.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0;
+  display: inline-block;
+  background: linear-gradient(90deg, #ffb86b 0%, #8be9fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: background 0.6s cubic-bezier(.4,0,.2,1);
+}
+
+.animated-title .emoji {
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+  font-family: inherit;
+  color: inherit;
+}
+
+.type-cursor {
+  display: none;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #b8b8b8;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.dropzone {
+  border: 2.5px dashed #8be9fd;
+  border-radius: 18px;
+  padding: 56px 20px;
+  cursor: pointer;
+  background: rgba(35, 41, 70, 0.95);
+  color: #b8b8b8;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  transition: border 0.3s, background 0.3s, box-shadow 0.3s;
+  outline: none;
+  box-shadow: 0 6px 32px 0 rgba(0,0,0,0.18);
+  font-size: 1.15rem;
+  text-align: center;
+}
+.dropzone:focus, .dropzone.active {
+  border-color: #ffb86b;
+  background: rgba(35, 41, 70, 1);
+  box-shadow: 0 8px 40px 0 rgba(139, 233, 253, 0.12);
+}
+.dropzone:hover {
+  border-color: #50fa7b;
+  background: rgba(35, 41, 70, 1);
+}
+
+.loader {
+  border: 8px solid #232946;
+  border-radius: 50%;
+  border-top: 8px solid #8be9fd;
+  width: 60px;
+  height: 60px;
+  animation: spin 1.2s linear infinite;
+  margin: 40px auto;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+.error-message {
+  background: #2d1e2f;
+  color: #ff6b6b;
+  padding: 1rem;
+  border: 1px solid #ffb86b;
+  border-radius: 10px;
+  margin-top: 2rem;
+  font-weight: 500;
+  box-shadow: 0 2px 12px 0 rgba(255, 107, 107, 0.08);
+  transition: background 0.3s, color 0.3s;
+}
+
+.feedback-container {
+  margin-top: 2rem;
+  padding: 2.5rem 2rem;
+  background: rgba(35, 41, 70, 0.98);
+  border-radius: 18px;
+  box-shadow: 0 8px 40px 0 rgba(139, 233, 253, 0.10);
+  text-align: left;
+  animation: fadeIn 0.7s;
+  transition: background 0.6s cubic-bezier(.4,0,.2,1), box-shadow 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.feedback-section {
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInSection 0.8s forwards;
+  animation-delay: 0.2s;
+  transition: background 0.3s, color 0.3s;
+}
+.feedback-section.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeInSection {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.feedback-section h3 {
+  color: #8be9fd;
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.feedback-section ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.feedback-section li {
+  background: #181c24;
+  padding: 12px 14px;
+  border-radius: 7px;
+  margin-bottom: 10px;
+  color: #f3f3f3;
+  font-size: 1.08rem;
+  box-shadow: 0 1px 6px 0 rgba(139, 233, 253, 0.04);
+  transition: background 0.3s, color 0.3s;
+}
+
+.feedback-section.score p,
+.score-type {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #50fa7b;
+}
+
+footer {
+  text-align: center;
+  color: #b8b8b8;
+  padding: 1.5rem 0 0.5rem 0;
+  font-size: 1rem;
+  margin-top: 2rem;
+  opacity: 0.85;
+} 

@@ -4,6 +4,7 @@ load_dotenv()
 import os
 from langchain_core.messages import SystemMessage, HumanMessage
 import json
+from pydantic import SecretStr
 
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
@@ -14,10 +15,9 @@ class FeedBack:
         self.llm = ChatOpenAI(
             temperature=0.7,
             model="gpt-4o",
-            openai_api_key = os.getenv("OPENAI_API_KEY")
+            api_key=os.getenv("OPENAI_API_KEY", "")
         )
 
-    @staticmethod
     def generateFeedback(self, resume: str) -> dict:
         #    def generateFeedback(self, analysis: dict, resume: str, jobdesc: str) -> str:
         prompt = ("""
@@ -60,20 +60,7 @@ class FeedBack:
 
         try:
             response = self.llm.invoke(messages)
-            return json.loads(response.content)
+            return json.loads(str(response.content))
         except Exception as e:
-            return f"{e}"
-
-pdf = PDFProcessor.PdfProcessor('kataoka.pdf')
-
-
-f = FeedBack()
-temp = f.generateFeedback(f, pdf.resumeOutput)
-
-print(temp)
-
-print(temp['score'])
-print(temp['strengths'])
-print(temp['suggestions'])
-print(temp['constructive_criticism'])
+            return {"error": str(e)}
 
